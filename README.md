@@ -8,6 +8,7 @@ The plug-in inherits most of the features of [VTS Twitch Dropper](https://github
 
 _Thanks for Taiwan Vtuber Chilla Behemes's testing._
 ![https://youtu.be/8UN9Z_cpWFU?t=496](https://i.imgur.com/7Fmg0pl.png)
+Stream: https://youtu.be/8UN9Z_cpWFU?t=459
 
 ## How to use this?
 
