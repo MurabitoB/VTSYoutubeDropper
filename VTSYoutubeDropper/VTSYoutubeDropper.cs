@@ -72,7 +72,7 @@ namespace VTSYoutubeDropper
         }
 
 
-        private Rect windowRect = new Rect(50, 50, 300, 200);
+        private Rect windowRect = new Rect(50, 50, 300, 100);
         private string url = "";
         
         // GUI
