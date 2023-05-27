@@ -24,7 +24,7 @@ Stream: https://youtu.be/8UN9Z_cpWFU?t=459
 
 ### 3. Open VTube Studio and the plug-in.
 
-Press `DELETE` key to open the plug-in window.
+Press `DELETE` key to open/close the plug-in window.
 
 ![](https://i.imgur.com/Z8RAndz.png)
 
@@ -60,7 +60,7 @@ A: Yes, you can.
 
 Q: Why I didn't see the permission required when I use this plug-in.
 
-A: This is not use the official way to interacte with VTube Studio, so it will not show the permission required.
+A: The plugin not use the official way to interact with VTube Studio, so it will not show the permission required.
 
 ---
 
