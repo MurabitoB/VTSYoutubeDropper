@@ -28,7 +28,7 @@ Press `DELETE` key to open/close the plug-in window.
 
 ![](https://i.imgur.com/Z8RAndz.png)
 
-EXAMPLE: `https://www.youtube.com/watch?v=8UN9Z_cpWFU&t=1212`
+EXAMPLE: `https://www.youtube.com/watch?v=8UN9Z_cpWF`
 
 Copy your stream url to the plug-in window and click Confirm.
 
