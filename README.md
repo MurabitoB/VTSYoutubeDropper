@@ -22,7 +22,22 @@ Stream: https://youtu.be/8UN9Z_cpWFU?t=459
 ![](https://i.imgur.com/tqObut1.png)
 ![](https://i.imgur.com/lC0zXA8.png)
 
-### 3. Open VTube Studio and the plug-in.
+### 3. Open VTube Studio and login to twitch
+
+This plug-in use VTS Twitch Dropper as the base, so you can config in the same way.
+
+I know it is weird, but you should login to **Twitch** then you can modify the **Youtube Emote Dropper's** configs.
+
+**Important: you should enable the Twitch Emote Dropper first to enable Youtube Emote Dropper.**
+
+Most of the parameter will inherit from Twitch Dropper.
+
+![](https://i.imgur.com/SRnRAnZ.png)
+![](https://i.imgur.com/3l0rvJ3.png)
+![](https://i.imgur.com/IwEOuti.png)
+![](https://i.imgur.com/y2T8Sga.png)
+
+### 4. Open the plug-in window
 
 Press `DELETE` key to open/close the plug-in window.
 
@@ -33,18 +48,6 @@ EXAMPLE: `https://www.youtube.com/watch?v=8UN9Z_cpWF`
 Copy your stream url to the plug-in window and click Confirm.
 
 ![](https://i.imgur.com/VshobEL.png)
-
-## How to modify the Youtube Dropper Effect?
-
-This plug-in use VTS Twitch Dropper as the base, so you can config in the same way.
-
-I know it is weird, but you should login to **Twitch** then you can modify the **Youtube Emote Dropper's** configs.
-
-Most of the parameter will inherit from Twitch Dropper.
-
-![](https://i.imgur.com/SRnRAnZ.png)
-![](https://i.imgur.com/3l0rvJ3.png)
-![](https://i.imgur.com/y2T8Sga.png)
 
 ## Notes
 
