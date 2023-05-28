@@ -1,12 +1,12 @@
-# VTS Youtube Dropper
+# VTS Youtube Emote Dropper
 
 ## What is this?
 
-This is a [VTube Studio](https://store.steampowered.com/app/1325860/VTube_Studio/) plug-in that can drop Youtube chat emoji into VTube Studio.
+This is a [VTube Studio](https://store.steampowered.com/app/1325860/VTube_Studio/) plug-in that can drop Youtube chatroom's emotes into VTube Studio.
 
 The plug-in inherits most of the features of [VTS Twitch Dropper](https://github.com/DenchiSoft/VTubeStudio/wiki/Twitch-Interaction).
 
-_Thanks for Taiwan Vtuber Chilla Behemes's testing._
+_Thanks for Taiwanese Vtuber Chilla Behemes's testing._
 ![https://youtu.be/8UN9Z_cpWFU?t=496](https://i.imgur.com/7Fmg0pl.png)
 Stream: https://youtu.be/8UN9Z_cpWFU?t=459
 
@@ -38,7 +38,7 @@ Copy your stream url to the plug-in window and click Confirm.
 
 This plug-in use VTS Twitch Dropper as the base, so you can config in the same way.
 
-I know it is weird, but you should login to **Twitch** then you can modify the **Youtube Dropper's** configs.
+I know it is weird, but you should login to **Twitch** then you can modify the **Youtube Emote Dropper's** configs.
 
 Most of the parameter will inherit from Twitch Dropper.
 
@@ -48,11 +48,15 @@ Most of the parameter will inherit from Twitch Dropper.
 
 ## Notes
 
-**Important: Member only stream is not supported.**
+Important:
+
+- Member only stream is not supported.
+- Text Emoji is not supported.
+- Message in Super Chat is not supported.
 
 ## Q&A
 
-Q: Can I use twich and youtube dropper at the same time?
+Q: Can I use Twitch and Youtube Emote Dropper at the same time?
 
 A: Yes, you can.
 
@@ -60,7 +64,7 @@ A: Yes, you can.
 
 Q: Why I didn't see the permission required when I use this plug-in.
 
-A: The plugin not use the official way to interact with VTube Studio, so it will not show the permission required.
+A: The plug-in not use the official way to interact with VTube Studio, so it will not show the permission required.
 
 ---
 
@@ -72,7 +76,7 @@ A: No, this plug-in is only for Windows.
 
 Q: Is this free?
 
-A: Yes, this is free, no matter you are an Individual or a Company's Vtuber.
+A: Yes, this is free, no matter you are an Individual or a Enterprise's Vtuber.
 
 ---
 
@@ -82,6 +86,6 @@ A: Feel free to fork or modify this plug-in.
 
 ## Reference
 
-[KomeTube](https://github.com/dghkd/KomeTube/tree/master/KomeTube): Get youtube chat message.
+[KomeTube](https://github.com/dghkd/KomeTube/tree/master/KomeTube): Get youtube chatroom messages.
 
 [BepInEx](https://github.com/BepInEx/BepInEx): The Unity Plugin/Modding Framework.
