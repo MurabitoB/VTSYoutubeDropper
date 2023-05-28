@@ -20,7 +20,9 @@ Stream: https://youtu.be/8UN9Z_cpWFU?t=459
 ### 2. Extract the zip file and put the folder into VTube Studio's installed folder.
 
 ![](https://i.imgur.com/tqObut1.png)
-![](https://i.imgur.com/lC0zXA8.png)
+![](https://i.imgur.com/bOpUX6A.png)
+
+**Important: All the files in the zip file should be extract and drop to the correct folder.**
 
 ### 3. Open VTube Studio and login to twitch
 
