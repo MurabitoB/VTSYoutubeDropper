@@ -94,3 +94,7 @@ A: Feel free to fork or modify this plug-in.
 [KomeTube](https://github.com/dghkd/KomeTube/tree/master/KomeTube): Get youtube chatroom messages.
 
 [BepInEx](https://github.com/BepInEx/BepInEx): The Unity Plugin/Modding Framework.
+
+<h3 align="left">Support:</h3>
+<p><a href="https://www.buymeacoffee.com/murabitob"> <img align="left" src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" height="50" width="210" alt="murabitob" /></a></p><br><br>
+
