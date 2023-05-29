@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MurabitoB.Youtube.Core", "M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VTSYoutubeDropper", "VTSYoutubeDropper\VTSYoutubeDropper.csproj", "{7BA00E0F-1622-40C1-8C16-BE8D855F4584}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VTSYoutuberDropperTestConsole", "VTSYoutuberDropperTestConsole\VTSYoutuberDropperTestConsole.csproj", "{842BFB74-7E27-4F36-880B-2F920E23E255}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{7BA00E0F-1622-40C1-8C16-BE8D855F4584}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7BA00E0F-1622-40C1-8C16-BE8D855F4584}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7BA00E0F-1622-40C1-8C16-BE8D855F4584}.Release|Any CPU.Build.0 = Release|Any CPU
+		{842BFB74-7E27-4F36-880B-2F920E23E255}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{842BFB74-7E27-4F36-880B-2F920E23E255}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{842BFB74-7E27-4F36-880B-2F920E23E255}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{842BFB74-7E27-4F36-880B-2F920E23E255}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
