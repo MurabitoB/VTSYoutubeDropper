@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using KomeTube.Emums;
 using KomeTube.Kernel;
+using VTSYoutubeDropper;
 
 namespace VTSYoutuberDropperTestConsole
 {
@@ -13,16 +14,20 @@ namespace VTSYoutuberDropperTestConsole
             {
                 foreach (var comment in comments)
                 {
-                    var message = comment?.addChatItemAction?.item?.liveChatTextMessageRenderer?.message?.runs
-                        ?.Where(run => run.type == CommentDetailType.emoji).Select(x => x.content);
-                    foreach (var s in message)
+                    var thumbnails = Utils.FilterThumbnails(comments, false, false);
+                    var emojis = Utils.FilterEmojis(comments, false, false);
+                    foreach (var s in thumbnails)
+                    {
+                        System.Console.WriteLine(s);
+                    }
+                    foreach (var s in emojis)
                     {
                         System.Console.WriteLine(s);
                     }
                 }
             };
             
-            loader.Start("https://www.youtube.com/watch?v=bUVK1wysJpk");
+            loader.Start("http://localhost:3000/watch?v=7TWmO0Y0lIU");
 
             while (true)
             {

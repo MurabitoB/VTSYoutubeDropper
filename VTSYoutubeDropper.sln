@@ -4,7 +4,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MurabitoB.Youtube.Core", "M
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VTSYoutubeDropper", "VTSYoutubeDropper\VTSYoutubeDropper.csproj", "{7BA00E0F-1622-40C1-8C16-BE8D855F4584}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VTSYoutuberDropperTestConsole", "VTSYoutuberDropperTestConsole\VTSYoutuberDropperTestConsole.csproj", "{842BFB74-7E27-4F36-880B-2F920E23E255}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VTSYoutubeDropperTestConsole", "VTSYoutubeDropperTestConsole\VTSYoutubeDropperTestConsole.csproj", "{842BFB74-7E27-4F36-880B-2F920E23E255}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

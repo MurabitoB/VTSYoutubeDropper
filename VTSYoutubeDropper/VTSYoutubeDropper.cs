@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using BepInEx;
@@ -31,6 +32,7 @@ namespace VTSYoutubeDropper
         private void Start()
         {
             Harmony.CreateAndPatchAll(typeof(VTSYoutubeDropper));
+            // LoadAssetBundle();
         }
 
         private void Update()
@@ -41,45 +43,7 @@ namespace VTSYoutubeDropper
             }
         }
 
-
-        private IEnumerable<string> FilterEmojis(IEnumerable<CommentData> data, bool isPaidOnly = false)
-        {
-
-            var result = data.Select(
-                comment => comment?.addChatItemAction?.item?.liveChatTextMessageRenderer?.message?.runs
-                    ?.Where(run => run.type == CommentDetailType.emoji).Select(x => x.content));
-            
-            var paidEmojis = data.Select(
-                comment => comment?.addChatItemAction?.item?.liveChatPaidMessageRenderer?.message?.runs
-                    ?.Where(run => run.type == CommentDetailType.emoji).Select(x => x.content));
-            
-            if(isPaidOnly)
-                return paidEmojis.SelectMany(x => x).Where(x => !x.EndsWith(".svg"));
-            
-            return result.SelectMany(x => x).Concat(paidEmojis.SelectMany(x => x)).Where(x => !x.EndsWith(".svg"));
-        }
         
-        private IEnumerable<string> FilterThumbnails(IEnumerable<CommentData> data, bool isPaidOnly = false)
-        {
-
-            var normalEmojis = data.Select(
-                comment => comment?.addChatItemAction?.item?.liveChatTextMessageRenderer?.authorPhoto?.thumbnails
-                    ?.Select(x => x.url).LastOrDefault());
-            
-            
-            var paidEmojis = data.Select(
-                comment => comment?.addChatItemAction?.item?.liveChatPaidMessageRenderer?.authorPhoto?.thumbnails
-                    ?.Select(x => x.url).LastOrDefault());
-            
-            
-            if(isPaidOnly)
-                return paidEmojis.Where(x => !string.IsNullOrEmpty(x));
-            
-            
-
-            return normalEmojis.Concat(paidEmojis).Where(x => !string.IsNullOrEmpty(x));
-        }
-
         private CommentLoader GenerateLoader()
         {
             _loader = new CommentLoader();
@@ -87,12 +51,12 @@ namespace VTSYoutubeDropper
             {
                 if (_isDropEmote)
                 {
-                    DropEmoteOnReceive(comments, _isPaidOnly);
+                    DropEmoteOnReceive(comments, _isPaidOnly, _isMemberOnly);
                 }
                 
                 if (_isDropThumbnail)
                 {
-                    DropThumbnailOnReceive(comments, _isPaidOnly);
+                    DropThumbnailOnReceive(comments, _isPaidOnly, _isMemberOnly);
                 }
                 
             };
@@ -100,9 +64,9 @@ namespace VTSYoutubeDropper
             return _loader;
         }
 
-        private void DropEmoteOnReceive(IEnumerable<CommentData> data, bool isPaidOnly = false)
+        private void DropEmoteOnReceive(IEnumerable<CommentData> data, bool isPaidOnly = false, bool isMemberOnly = false)
         {
-            var filteredData = FilterEmojis(data, isPaidOnly);
+            var filteredData = Utils.FilterEmojis(data, isPaidOnly, isMemberOnly);
             foreach (var s in filteredData)
             {
                 UnityMainThreadDispatcher.Instance().Enqueue(delegate()
@@ -112,9 +76,9 @@ namespace VTSYoutubeDropper
             }
         }
         
-        private void DropThumbnailOnReceive(IEnumerable<CommentData> data, bool isPaidOnly = false)
+        private void DropThumbnailOnReceive(IEnumerable<CommentData> data, bool isPaidOnly = false, bool isMemberOnly = false)
         {
-            var filteredData = FilterThumbnails(data, isPaidOnly);
+            var filteredData = Utils.FilterThumbnails(data, isPaidOnly, isMemberOnly);
             foreach (var s in filteredData)
             {
                 UnityMainThreadDispatcher.Instance().Enqueue(delegate()
@@ -140,6 +104,7 @@ namespace VTSYoutubeDropper
         public void WindowFunc(int id)
         {
             _isPaidOnly = GUILayout.Toggle(_isPaidOnly, "Only Drop Paid Message");
+            _isMemberOnly = GUILayout.Toggle(_isMemberOnly, "Only Drop Member or Admin Message");
             _isDropEmote = GUILayout.Toggle(_isDropEmote, "Drop Emote");
             _isDropThumbnail = GUILayout.Toggle(_isDropThumbnail, "Drop AuthorPhoto");
             
@@ -164,6 +129,23 @@ namespace VTSYoutubeDropper
             
             GUI.DragWindow(windowRect);
         }
+
+        // public void LoadAssetBundle()
+        // {
+        //     Assembly assembly = Assembly.GetExecutingAssembly();
+        //     var stream = assembly.GetManifestResourceStream("VTSYoutubeDropper.vtsyoutubedropper");
+        //     var ab = AssetBundle.LoadFromStream(stream);
+        //     if (ab != null)
+        //     {
+        //         var uiPrefab = ab.LoadAsset<GameObject>("VTSYoutubeDropper");
+        //         var root = GameObject.Find("Front UI/--- ConfigWindow/ - [1] General Config/Viewport/Content");
+        //         var instance = GameObject.Instantiate(uiPrefab, root.transform, false);
+        //     }
+        //     else
+        //     {
+        //         Logger.LogError("AssetBundle not found!");
+        //     }
+        // }
 
         [HarmonyPatch(typeof(TwitchDropper), "Update")]
         [HarmonyPrefix]
