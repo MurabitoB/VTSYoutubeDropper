@@ -111,7 +111,7 @@ namespace VTSYoutubeDropper
         {
             var filteredData = Utils
                 .FilterThumbnails(data, isPaidOnly, isMemberOnly)
-                .Select(url => GetCache(64, 128, url));
+                .Select(url => GetCache(64, 128, url, true));
                 
             foreach (var s in filteredData)
             {
@@ -122,14 +122,18 @@ namespace VTSYoutubeDropper
             }
         }
 
-        private string GetCache(int originRes, int upperRes, string url)
+        private string GetCache(int originRes, int upperRes, string url, bool isSize = false)
         {
             if(_textureCache.ContainsKey(url))
             {
                 return _textureCache[url];
             }
 
-            var result = url.Replace($"w{originRes}-h{originRes}", $"w{upperRes}-h{upperRes}");
+            string result = "";
+            if(!isSize)
+                result = url.Replace($"w{originRes}-h{originRes}", $"w{upperRes}-h{upperRes}");
+            else
+                result = url.Replace($"=s{originRes}-c-k", $"=s{upperRes}-c-k");
             _textureCache.Add(url, result);
             
             return result;

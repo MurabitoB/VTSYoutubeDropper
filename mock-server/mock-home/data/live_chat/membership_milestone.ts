@@ -277,7 +277,7 @@ export default {
                         height: 32,
                       },
                       {
-                        url: "https://yt4.ggpht.com/ytc/AGIKgqNr4wsCdOCB9k7EhhwhA0-8fxhK06MOSiZkIWjxLg=s64-c-k-c0x00ffffff-no-rj",
+                        url: "https://yt3.ggpht.com/P65jkl-5vsfdCl3drMowpsk1BrmWntvoi6sG-X--iNIGGwUVTu-XtfE8iFoaDdPJDmQSi_NV3IY=s64-c-k-c0x00ffffff-no-rj",
                         width: 64,
                         height: 64,
                       },

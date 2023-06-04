@@ -218,7 +218,7 @@ export default {
                               height: 16,
                             },
                             {
-                              url: "https://yt3.ggpht.com/KLnx8MlctABGhKK0nKeVeLAFlfW0ZosTIvGuiB3ssLkUnv4gBb5-eY5-xEsIUt_sMuqsx5VN=s32-c-k",
+                              url: "https://yt3.ggpht.com/P65jkl-5vsfdCl3drMowpsk1BrmWntvoi6sG-X--iNIGGwUVTu-XtfE8iFoaDdPJDmQSi_NV3IY=s32-c-k-c0x00ffffff-no-rj",
                               width: 32,
                               height: 32,
                             },
