@@ -18,9 +18,9 @@ namespace KomeTube.Kernel
     public class CommentLoader
     {
 
-        // private readonly static string BaseUrl = "www.youtube.com";
+        private readonly static string BaseUrl = "www.youtube.com";
 
-        private readonly static string BaseUrl = "localhost:3000";
+        // private readonly static string BaseUrl = "localhost:3000";
         
         #region Private Member
 
@@ -166,7 +166,7 @@ namespace KomeTube.Kernel
             }
             else
             {
-                ret = String.Format($"http://{BaseUrl}/live_chat?v={{0}}&is_popout=1", vid);
+                ret = String.Format($"https://{BaseUrl}/live_chat?v={{0}}&is_popout=1", vid);
             }
 
             return ret;
@@ -179,7 +179,7 @@ namespace KomeTube.Kernel
         /// <returns>回傳Youtube API 'get_live_chat'的位址</returns>
         private String GetLiveChatUrl(String apiKey)
         {
-            string ret = $@"http://{BaseUrl}/youtubei/v1/live_chat/get_live_chat?key=" + apiKey;
+            string ret = $@"https://{BaseUrl}/youtubei/v1/live_chat/get_live_chat?key=" + apiKey;
 
             return ret;
         }

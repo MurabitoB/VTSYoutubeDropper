@@ -1,5 +1,5 @@
 export default [
-  // "admin_chat",
+  // "non_member_chat",
   // "invalidation",
   // "member_chat",
   "membership_milestone",
