@@ -4,9 +4,9 @@ namespace VTSYoutubeDropper
 {
     public class I18nManager
     {
-        private static string _defaultLanguage = "English";
+        private static readonly string _defaultLanguage = "English";
         
-        private static Dictionary<string, Dictionary<string, string>> i18n = new Dictionary<string, Dictionary<string, string>>()
+        private static readonly Dictionary<string, Dictionary<string, string>> i18n = new Dictionary<string, Dictionary<string, string>>()
         {
             // Traditional Chinese
             {
@@ -54,7 +54,6 @@ namespace VTSYoutubeDropper
                 }
             },
         };
-
 
         public static string Translate(string language, string key)
         {
