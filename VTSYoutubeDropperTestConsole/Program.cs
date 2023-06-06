@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using KomeTube.Emums;
+using KomeTube.Enums;
 using KomeTube.Kernel;
 using VTSYoutubeDropper;
 

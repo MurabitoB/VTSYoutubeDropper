@@ -6,7 +6,7 @@ using System.Linq;
 using System.Reflection;
 using BepInEx;
 using HarmonyLib;
-using KomeTube.Emums;
+using KomeTube.Enums;
 using KomeTube.Kernel;
 using KomeTube.Kernel.YtLiveChatDataModel;
 using UnityEngine;
@@ -170,7 +170,7 @@ namespace VTSYoutubeDropper
                 _url = GUILayout.TextField(_url);
                 if (GUILayout.Button($"{_i18nConfirm}"))
                 {
-                    _loader.Start(_url);
+                    _loader.Start(_url, browserType: null, profileFolderName: string.Empty);
                 }
             }
             

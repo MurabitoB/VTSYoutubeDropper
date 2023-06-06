@@ -1,10 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MurabitoB.Youtube.Core", "MurabitoB.Youtube.Core\MurabitoB.Youtube.Core.csproj", "{3FCB4D2A-AE69-44D3-AAA1-B26C4C4E8237}"
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33723.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MurabitoB.Youtube.Core", "MurabitoB.Youtube.Core\MurabitoB.Youtube.Core.csproj", "{3FCB4D2A-AE69-44D3-AAA1-B26C4C4E8237}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VTSYoutubeDropper", "VTSYoutubeDropper\VTSYoutubeDropper.csproj", "{7BA00E0F-1622-40C1-8C16-BE8D855F4584}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VTSYoutubeDropperTestConsole", "VTSYoutubeDropperTestConsole\VTSYoutubeDropperTestConsole.csproj", "{842BFB74-7E27-4F36-880B-2F920E23E255}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinimalTestConsole", "MinimalTestConsole\MinimalTestConsole.csproj", "{EF25267C-2BB7-4DA8-9ED5-58175492729F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,5 +29,15 @@ Global
 		{842BFB74-7E27-4F36-880B-2F920E23E255}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{842BFB74-7E27-4F36-880B-2F920E23E255}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{842BFB74-7E27-4F36-880B-2F920E23E255}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF25267C-2BB7-4DA8-9ED5-58175492729F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF25267C-2BB7-4DA8-9ED5-58175492729F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF25267C-2BB7-4DA8-9ED5-58175492729F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF25267C-2BB7-4DA8-9ED5-58175492729F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {ECD92C49-4A4E-4C20-9347-AB0611796782}
 	EndGlobalSection
 EndGlobal

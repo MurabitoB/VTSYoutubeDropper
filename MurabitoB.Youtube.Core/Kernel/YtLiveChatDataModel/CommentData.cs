@@ -1,185 +1,321 @@
-﻿using KomeTube.Emums;
-using System;
+﻿using KomeTube.Enums;
+using Newtonsoft.Json;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace KomeTube.Kernel.YtLiveChatDataModel
 {
-    public class Run 
+    public class Run
     {
-        public CommentDetailType type { get; set; }
+        [JsonProperty("type")]
+        public CommentDetailType Type { get; set; }
 
-        public string content { get; set; }
+        [JsonProperty("content")]
+        public string Content { get; set; }
     }
 
     public class Message
     {
         public Message()
         {
-            runs = new List<Run>();
+            Runs = new List<Run>();
         }
 
-        public List<Run> runs { get; set; }
-        public string simpleText { get; set; }
+        [JsonProperty("runs")]
+        public List<Run> Runs { get; set; }
+
+        [JsonProperty("simpleText")]
+        public string SimpleText { get; set; }
     }
 
     public class AuthorName
     {
-        public string simpleText { get; set; }
+        [JsonProperty("simpleText")]
+        public string SimpleText { get; set; }
     }
 
     public class AuthorBadge
     {
-        public String tooltip { get; set; }
+        [JsonProperty("url")]
+        public string Url { get; set; }
+
+        [JsonProperty("iconType")]
+        public string IconType { get; set; }
+
+        [JsonProperty("tooltip")]
+        public string Tooltip { get; set; }
+
+        [JsonProperty("label")]
+        public string Label { get; set; }
+
+        public override string ToString()
+        {
+            return JsonConvert.SerializeObject(this);
+        }
     }
 
     public class Thumbnail
     {
-        public string url { get; set; }
-        public int width { get; set; }
-        public int height { get; set; }
+        [JsonProperty("url")]
+        public string Url { get; set; }
+
+        [JsonProperty("width")]
+        public int Width { get; set; }
+
+        [JsonProperty("height")]
+        public int Height { get; set; }
     }
 
     public class AuthorPhoto
     {
         public AuthorPhoto()
         {
-            this.thumbnails = new List<Thumbnail>();
+            Thumbnails = new List<Thumbnail>();
         }
 
-        public List<Thumbnail> thumbnails { get; set; }
+        [JsonProperty("thumbnails")]
+        public List<Thumbnail> Thumbnails { get; set; }
     }
 
     public class WebCommandMetadata
     {
-        public bool ignoreNavigation { get; set; }
+        [JsonProperty("ignoreNavigation")]
+        public bool IgnoreNavigation { get; set; }
     }
 
     public class CommandMetadata
     {
         public CommandMetadata()
         {
-            this.webCommandMetadata = new WebCommandMetadata();
+            WebCommandMetadata = new WebCommandMetadata();
         }
 
-        public WebCommandMetadata webCommandMetadata { get; set; }
+        [JsonProperty("webCommandMetadata")]
+        public WebCommandMetadata WebCommandMetadata { get; set; }
     }
 
     public class LiveChatItemContextMenuEndpoint
     {
-        public string parameters { get; set; }
+        [JsonProperty("parameters")]
+        public string Parameters { get; set; }
     }
 
     public class ContextMenuEndpoint
     {
         public ContextMenuEndpoint()
         {
-            this.commandMetadata = new CommandMetadata();
-            this.liveChatItemContextMenuEndpoint = new LiveChatItemContextMenuEndpoint();
+            CommandMetadata = new CommandMetadata();
+            LiveChatItemContextMenuEndpoint = new LiveChatItemContextMenuEndpoint();
         }
 
-        public string clickTrackingParams { get; set; }
-        public CommandMetadata commandMetadata { get; set; }
-        public LiveChatItemContextMenuEndpoint liveChatItemContextMenuEndpoint { get; set; }
+        [JsonProperty("clickTrackingParams")]
+        public string ClickTrackingParams { get; set; }
+
+        [JsonProperty("commandMetadata")]
+        public CommandMetadata CommandMetadata { get; set; }
+
+        [JsonProperty("liveChatItemContextMenuEndpoint")]
+        public LiveChatItemContextMenuEndpoint LiveChatItemContextMenuEndpoint { get; set; }
     }
 
     public class AccessibilityData
     {
-        public string label { get; set; }
+        [JsonProperty("label")]
+        public string Label { get; set; }
+    }
+
+    public class Accessibility
+    {
+        public Accessibility()
+        {
+            AccessibilityData = new AccessibilityData();
+        }
+
+        [JsonProperty("label")]
+        public string Label { get; set; }
+
+        [JsonProperty("accessibilityData")]
+        public AccessibilityData AccessibilityData { get; set; }
     }
 
     public class PurchaseAmountText
     {
-        public string simpleText { get; set; }
+        [JsonProperty("simpleText")]
+        public string SimpleText { get; set; }
     }
 
     public class ContextMenuAccessibility
     {
         public ContextMenuAccessibility()
         {
-            this.accessibilityData = new AccessibilityData();
+            AccessibilityData = new AccessibilityData();
         }
 
-        public AccessibilityData accessibilityData { get; set; }
+        [JsonProperty("accessibilityData")]
+        public AccessibilityData AccessibilityData { get; set; }
     }
 
     public class LiveChatPaidMessageRenderer : LiveChatTextMessageRenderer
     {
         public LiveChatPaidMessageRenderer()
         {
-            this.purchaseAmountText = new PurchaseAmountText();
+            PurchaseAmountText = new PurchaseAmountText();
         }
 
-        public PurchaseAmountText purchaseAmountText { get; set; }
-        public long headerBackgroundColor { get; set; }
-        public long headerTextColor { get; set; }
-        public long bodyBackgroundColor { get; set; }
-        public long bodyTextColor { get; set; }
-        public long authorNameTextColor { get; set; }
-        public long timestampColor { get; set; }
+        [JsonProperty("purchaseAmountText")]
+        public PurchaseAmountText PurchaseAmountText { get; set; }
+
+        [JsonProperty("headerBackgroundColor")]
+        public long HeaderBackgroundColor { get; set; }
+
+        [JsonProperty("headerTextColor")]
+        public long HeaderTextColor { get; set; }
+
+        [JsonProperty("bodyBackgroundColor")]
+        public long BodyBackgroundColor { get; set; }
+
+        [JsonProperty("bodyTextColor")]
+        public long BodyTextColor { get; set; }
+
+        [JsonProperty("authorNameTextColor")]
+        public long AuthorNameTextColor { get; set; }
+
+        [JsonProperty("timestampColor")]
+        public long TimestampColor { get; set; }
     }
-    
+
+    public class Sticker
+    {
+        public Sticker()
+        {
+            Thumbnails = new List<Thumbnail>();
+            Accessibility = new Accessibility();
+        }
+
+        [JsonProperty("thumbnails")]
+        public List<Thumbnail> Thumbnails { get; set; }
+
+        [JsonProperty("accessibility")]
+        public Accessibility Accessibility { get; set; }
+    }
+
+    public class LiveChatPaidStickerRenderer : LiveChatTextMessageRenderer
+    {
+        public LiveChatPaidStickerRenderer()
+        {
+            Sticker = new Sticker();
+            PurchaseAmountText = new PurchaseAmountText();
+        }
+
+        [JsonProperty("sticker")]
+        public Sticker Sticker { get; set; }
+
+        [JsonProperty("moneyChipBackgroundColor")]
+        public long MoneyChipBackgroundColor { get; set; }
+
+        [JsonProperty("moneyChipTextColor")]
+        public long MoneyChipTextColor { get; set; }
+
+        [JsonProperty("purchaseAmountText")]
+        public PurchaseAmountText PurchaseAmountText { get; set; }
+
+        [JsonProperty("stickerDisplayWidth")]
+        public int StickerDisplayWidth { get; set; }
+
+        [JsonProperty("stickerDisplayHeight")]
+        public int StickerDisplayHeight { get; set; }
+
+        [JsonProperty("backgroundColor")]
+        public long BackgroundColor { get; set; }
+
+        [JsonProperty("authorNameTextColor")]
+        public long AuthorNameTextColor { get; set; }
+
+        [JsonProperty("trackingParams")]
+        public string TrackingParams { get; set; }
+    }
+
     public class LiveChatMembershipItemRenderer : LiveChatTextMessageRenderer
     {
-      
+
     }
 
     public class LiveChatSponsorshipsGiftPurchaseAnnouncementRenderer : LiveChatTextMessageRenderer
     {
-        
+
     }
 
     public class LiveChatTextMessageRenderer
     {
         public LiveChatTextMessageRenderer()
         {
-            this.message = new Message();
-            this.authorName = new AuthorName();
-            this.authorPhoto = new AuthorPhoto();
-            this.authorBadges = new List<AuthorBadge>();
-            this.contextMenuEndpoint = new ContextMenuEndpoint();
-            this.contextMenuAccessibility = new ContextMenuAccessibility();
+            Message = new Message();
+            AuthorName = new AuthorName();
+            AuthorPhoto = new AuthorPhoto();
+            AuthorBadges = new List<AuthorBadge>();
+            ContextMenuEndpoint = new ContextMenuEndpoint();
+            ContextMenuAccessibility = new ContextMenuAccessibility();
         }
 
-        public Message message { get; set; }
-        public AuthorName authorName { get; set; }
-        public AuthorPhoto authorPhoto { get; set; }
-        public ContextMenuEndpoint contextMenuEndpoint { get; set; }
-        public string id { get; set; }
-        public long timestampUsec { get; set; }
-        public string authorExternalChannelId { get; set; }
-        public ContextMenuAccessibility contextMenuAccessibility { get; set; }
-        public List<AuthorBadge> authorBadges { get; set; }
+        [JsonProperty("message")]
+        public Message Message { get; set; }
+
+        [JsonProperty("authorName")]
+        public AuthorName AuthorName { get; set; }
+
+        [JsonProperty("authorPhoto")]
+        public AuthorPhoto AuthorPhoto { get; set; }
+
+        [JsonProperty("contextMenuEndpoint")]
+        public ContextMenuEndpoint ContextMenuEndpoint { get; set; }
+
+        [JsonProperty("id")]
+        public string Id { get; set; }
+
+        [JsonProperty("timestampUsec")]
+        public long TimestampUsec { get; set; }
+
+        [JsonProperty("authorExternalChannelId")]
+        public string AuthorExternalChannelId { get; set; }
+
+        [JsonProperty("contextMenuAccessibility")]
+        public ContextMenuAccessibility ContextMenuAccessibility { get; set; }
+
+        [JsonProperty("authorBadges")]
+        public List<AuthorBadge> AuthorBadges { get; set; }
     }
 
     public class Item
     {
         public Item()
         {
-            this.liveChatTextMessageRenderer = new LiveChatTextMessageRenderer();
-            this.liveChatPaidMessageRenderer = new LiveChatPaidMessageRenderer();
-            this.liveChatMembershipItemRenderer = new LiveChatMembershipItemRenderer();
-            this.liveChatSponsorshipsGiftPurchaseAnnouncementRenderer = new LiveChatSponsorshipsGiftPurchaseAnnouncementRenderer();
+            LiveChatTextMessageRenderer = new LiveChatTextMessageRenderer();
+            LiveChatPaidMessageRenderer = new LiveChatPaidMessageRenderer();
+            LiveChatPaidStickerRenderer = new LiveChatPaidStickerRenderer();
+            LiveChatMembershipItemRenderer = new LiveChatMembershipItemRenderer();
+            LiveChatSponsorshipsGiftPurchaseAnnouncementRenderer = new LiveChatSponsorshipsGiftPurchaseAnnouncementRenderer();
         }
 
-        public LiveChatTextMessageRenderer liveChatTextMessageRenderer { get; set; }
-        public LiveChatPaidMessageRenderer liveChatPaidMessageRenderer { get; set; }
-        public LiveChatMembershipItemRenderer liveChatMembershipItemRenderer { get; set; }
-        
-        public LiveChatSponsorshipsGiftPurchaseAnnouncementRenderer liveChatSponsorshipsGiftPurchaseAnnouncementRenderer { get; set; }
+        [JsonProperty("liveChatTextMessageRenderer")]
+        public LiveChatTextMessageRenderer LiveChatTextMessageRenderer { get; set; }
+
+        [JsonProperty("liveChatPaidMessageRenderer")]
+        public LiveChatPaidMessageRenderer LiveChatPaidMessageRenderer { get; set; }
+
+        [JsonProperty("liveChatPaidStickerRenderer")]
+        public LiveChatPaidStickerRenderer LiveChatPaidStickerRenderer { get; set; }
+
+        [JsonProperty("liveChatMembershipItemRenderer")]
+        public LiveChatMembershipItemRenderer LiveChatMembershipItemRenderer { get; set; }
+
+        [JsonProperty("liveChatSponsorshipsGiftPurchaseAnnouncementRenderer")]
+        public LiveChatSponsorshipsGiftPurchaseAnnouncementRenderer LiveChatSponsorshipsGiftPurchaseAnnouncementRenderer { get; set; }
 
         public bool IsPaidMessage
         {
             get
             {
-                if (liveChatPaidMessageRenderer.purchaseAmountText.simpleText != null
-                    && liveChatPaidMessageRenderer.purchaseAmountText.simpleText != "")
-                {
-                    return true;
-                }
-                return false;
+                return !string.IsNullOrEmpty(LiveChatPaidMessageRenderer.PurchaseAmountText.SimpleText) ||
+                    !string.IsNullOrEmpty(LiveChatPaidStickerRenderer.PurchaseAmountText.SimpleText);
             }
         }
     }
@@ -188,29 +324,35 @@ namespace KomeTube.Kernel.YtLiveChatDataModel
     {
         public AddChatItemAction()
         {
-            this.item = new Item();
+            Item = new Item();
         }
 
-        public Item item { get; set; }
-        public string clientId { get; set; }
+        [JsonProperty("item")]
+        public Item Item { get; set; }
+
+        [JsonProperty("clientId")]
+        public string ClientId { get; set; }
     }
 
     public class CommentData
     {
         public CommentData()
         {
-            this.addChatItemAction = new AddChatItemAction();
+            AddChatItemAction = new AddChatItemAction();
         }
 
-        public AddChatItemAction addChatItemAction { get; set; }
+        [JsonProperty("addChatItemAction")]
+        public AddChatItemAction AddChatItemAction { get; set; }
 
         public override string ToString()
         {
-            String ret = String.Format("{0}:{1}", this.addChatItemAction.item.liveChatTextMessageRenderer.authorName.simpleText, this.addChatItemAction.item.liveChatTextMessageRenderer.message.simpleText);
-            if (this.addChatItemAction.item.liveChatPaidMessageRenderer.purchaseAmountText.simpleText != "")
+            string ret = string.Format("{0}:{1}", AddChatItemAction.Item.LiveChatTextMessageRenderer.AuthorName.SimpleText, AddChatItemAction.Item.LiveChatTextMessageRenderer.Message.SimpleText);
+
+            if (!string.IsNullOrEmpty(AddChatItemAction.Item.LiveChatPaidMessageRenderer.PurchaseAmountText.SimpleText))
             {
-                ret += String.Format(" {0}", this.addChatItemAction.item.liveChatPaidMessageRenderer.purchaseAmountText.simpleText);
+                ret += string.Format(" {0}", AddChatItemAction.Item.LiveChatPaidMessageRenderer.PurchaseAmountText.SimpleText);
             }
+
             return ret;
         }
     }

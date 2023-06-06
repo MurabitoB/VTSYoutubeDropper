@@ -1,30 +1,56 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
 namespace KomeTube.Kernel.YtLiveChatDataModel
 {
     public class Client
     {
-        public string hl { get; set; }
-        public string gl { get; set; }
-        public string remoteHost { get; set; }
-        public string deviceMake { get; set; }
-        public string deviceModel { get; set; }
-        public string visitorData { get; set; }
-        public string userAgent { get; set; }
-        public string clientName { get; set; }
-        public string clientVersion { get; set; }
-        public string osName { get; set; }
-        public string osVersion { get; set; }
-        public string originalUrl { get; set; }
-        public string platform { get; set; }
-        public string clientFormFactor { get; set; }
-        public string browserName { get; set; }
-        public string browserVersion { get; set; }
+        [JsonProperty("hl")]
+        public string Hl { get; set; }
+
+        [JsonProperty("gl")]
+        public string Gl { get; set; }
+
+        [JsonProperty("remoteHost")]
+        public string RemoteHost { get; set; }
+
+        [JsonProperty("deviceMake")]
+        public string DeviceMake { get; set; }
+
+        [JsonProperty("deviceModel")]
+        public string DeviceModel { get; set; }
+
+        [JsonProperty("visitorData")]
+        public string VisitorData { get; set; }
+
+        [JsonProperty("userAgent")]
+        public string UserAgent { get; set; }
+
+        [JsonProperty("clientName")]
+        public string ClientName { get; set; }
+
+        [JsonProperty("clientVersion")]
+        public string ClientVersion { get; set; }
+
+        [JsonProperty("osName")]
+        public string OsName { get; set; }
+
+        [JsonProperty("osVersion")]
+        public string OsVersion { get; set; }
+
+        [JsonProperty("originalUrl")]
+        public string OriginalUrl { get; set; }
+
+        [JsonProperty("platform")]
+        public string Platform { get; set; }
+
+        [JsonProperty("clientFormFactor")]
+        public string ClientFormFactor { get; set; }
+
+        [JsonProperty("browserName")]
+        public string BrowserName { get; set; }
+
+        [JsonProperty("browserVersion")]
+        public string BrowserVersion { get; set; }
     }
 
     public class User
@@ -34,48 +60,88 @@ namespace KomeTube.Kernel.YtLiveChatDataModel
 
     public class Request
     {
-        public bool useSsl { get; set; }
+        [JsonProperty("useSsl")]
+        public bool UseSsl { get; set; }
     }
 
     public class ClickTracking
     {
-        public string clickTrackingParams { get; set; }
+        [JsonProperty("clickTrackingParams")]
+        public string ClickTrackingParams { get; set; }
     }
 
     public class INNERTUBE_CONTEXT
     {
         public INNERTUBE_CONTEXT()
         {
-            this.client = new Client();
-            this.user = new User();
-            this.request = new Request();
-            this.clickTracking = new ClickTracking();
+            Client = new Client();
+            User = new User();
+            Request = new Request();
+            ClickTracking = new ClickTracking();
         }
 
-        public Client client { get; set; }
-        public User user { get; set; }
-        public Request request { get; set; }
-        public ClickTracking clickTracking { get; set; }
+        [JsonProperty("client")]
+        public Client Client { get; set; }
+
+        [JsonProperty("user")]
+        public User User { get; set; }
+
+        [JsonProperty("request")]
+        public Request Request { get; set; }
+
+        [JsonProperty("clickTracking")]
+        public ClickTracking ClickTracking { get; set; }
     }
 
     public class InnerTubeContextData
     {
         public InnerTubeContextData()
         {
-            this.context = new INNERTUBE_CONTEXT();
-            this.continuation = "";
+            Context = new INNERTUBE_CONTEXT();
+            Continuation = string.Empty;
         }
 
-        public INNERTUBE_CONTEXT context { get; set; }
-        public string continuation { get; set; }
+        [JsonProperty("context")]
+        public INNERTUBE_CONTEXT Context { get; set; }
+
+        [JsonProperty("continuation")]
+        public string Continuation { get; set; }
 
         [JsonIgnore]
-        public string INNERTUBE_API_KEY { get; set; }
+        [JsonProperty("INNERTUBE_API_KEY")]
+        public string InnetrubeApiKey { get; set; }
+
+        [JsonIgnore]
+        [JsonProperty("ID_TOKEN")]
+        public string IDToken { get; set; }
+
+        [JsonIgnore]
+        [JsonProperty("SESSION_INDEX")]
+        public string SessionIndex { get; set; }
+
+        [JsonIgnore]
+        [JsonProperty("INNERTUBE_CONTEXT_CLIENT_NAME")]
+        public int InnertubeContextClientName { get; set; }
+
+        [JsonIgnore]
+        [JsonProperty("INNERTUBE_CONTEXT_CLIENT_VERSION")]
+        public string InnertubeContextClientVersion { get; set; }
+
+        [JsonIgnore]
+        [JsonProperty("INNERTUBE_CLIENT_VERSION")]
+        public string InnertubeClientVersion { get; set; }
+
+        [JsonIgnore]
+        [JsonProperty("DATASYNC_ID")]
+        public string DataSyncID { get; set; }
+
+        [JsonIgnore]
+        [JsonProperty("DELEGATED_SESSION_ID")]
+        public string DelegatedSessionID { get; set; }
 
         public override string ToString()
         {
-            string ret = JsonConvert.SerializeObject(this);
-            return ret;
+            return JsonConvert.SerializeObject(this);
         }
     }
 }
