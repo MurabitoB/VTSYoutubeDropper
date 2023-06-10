@@ -12,7 +12,7 @@ _台湾の Vtuber、Chilla Behemes さんのテストに感謝します。_
 
 ## 使い方
 
-### 1. リリースページにアクセスし、最新バージョンのプラグインをダウンロードします。
+### 1. [リリースページ](https://github.com/MurabitoB/VTSYoutubeDropper/releases)にアクセスし、最新バージョンのプラグインをダウンロードします。
 
 ![](https://i.imgur.com/LQh497E.png)
 ![](https://i.imgur.com/iQYuTWu.png)
