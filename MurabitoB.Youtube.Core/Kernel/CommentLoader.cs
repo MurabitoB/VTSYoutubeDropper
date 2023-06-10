@@ -17,6 +17,11 @@ namespace KomeTube.Kernel
 {
     public class CommentLoader
     {
+
+        private readonly static string BaseUrl = "www.youtube.com";
+
+        // private readonly static string BaseUrl = "localhost:3000";
+        
         #region Private Member
 
         private String _videoUrl;
@@ -137,7 +142,7 @@ namespace KomeTube.Kernel
         /// <returns>回傳聊天室位址，若失敗則發出CanNotGetLiveChatUrl Error事件，並回傳空字串</returns>
         private String GetLiveChatRoomUrl(String videoUrl)
         {
-            const String baseUrl = "www.youtube.com/watch?";
+            String baseUrl = $"{BaseUrl}/watch?";
             String ret = "";
             String urlParamStr = videoUrl.Substring(videoUrl.IndexOf(baseUrl) + baseUrl.Length);
             String[] urlParamArr = urlParamStr.Split('&');
@@ -161,7 +166,7 @@ namespace KomeTube.Kernel
             }
             else
             {
-                ret = String.Format("https://www.youtube.com/live_chat?v={0}&is_popout=1", vid);
+                ret = String.Format($"https://{BaseUrl}/live_chat?v={{0}}&is_popout=1", vid);
             }
 
             return ret;
@@ -174,7 +179,7 @@ namespace KomeTube.Kernel
         /// <returns>回傳Youtube API 'get_live_chat'的位址</returns>
         private String GetLiveChatUrl(String apiKey)
         {
-            string ret = @"https://www.youtube.com/youtubei/v1/live_chat/get_live_chat?key=" + apiKey;
+            string ret = $@"https://{BaseUrl}/youtubei/v1/live_chat/get_live_chat?key=" + apiKey;
 
             return ret;
         }
@@ -250,7 +255,8 @@ namespace KomeTube.Kernel
         /// </summary>
         /// <param name="liveChatUrl">聊天室位址</param>
         /// <returns>回傳continuation參數值</returns>
-        private List<CommentData> ParseLiveChatHtml(String liveChatUrl, ref String continuation)
+        private List<CommentData> ParseLiveChatHtml
+            (String liveChatUrl, ref String continuation)
         {
             String htmlContent = "";
             List<CommentData> initComments = new List<CommentData>();
@@ -551,11 +557,27 @@ namespace KomeTube.Kernel
                 else
                 {
                     dynamic paidMsgRd = JsonHelper.TryGetValueByXPath(commentActions[i], "addChatItemAction.item.liveChatPaidMessageRenderer", null);
-                    if (paidMsgRd == null)
+                    dynamic membershipMsgRd = JsonHelper.TryGetValueByXPath(commentActions[i], "addChatItemAction.item.liveChatMembershipItemRenderer", null);
+                    dynamic gift = JsonHelper.TryGetValueByXPath(commentActions[i], "addChatItemAction.item.liveChatSponsorshipsGiftPurchaseAnnouncementRenderer", null);
+                    
+                    if (paidMsgRd != null)
+                    {
+                        ParsePaidMessage(cmt.addChatItemAction.item.liveChatPaidMessageRenderer, paidMsgRd);
+                    }
+                    
+                    else if (membershipMsgRd != null)
+                    {
+                        ParseMemberMilestoneMessage(cmt.addChatItemAction.item.liveChatMembershipItemRenderer, membershipMsgRd);
+                    }
+                    else if (gift != null)
+                    {
+                        ParseGiftMessage(cmt.addChatItemAction.item.liveChatSponsorshipsGiftPurchaseAnnouncementRenderer, gift);
+                    }
+                    else
                     {
                         continue;
                     }
-                    ParsePaidMessage(cmt.addChatItemAction.item.liveChatPaidMessageRenderer, paidMsgRd);
+
                 }
 
                 ret.Add(cmt);
@@ -582,6 +604,17 @@ namespace KomeTube.Kernel
             liveChatPaidMessageRenderer.authorNameTextColor = Convert.ToInt64(JsonHelper.TryGetValueByXPath(paidMsgRd, "authorNameTextColor", 0));
             liveChatPaidMessageRenderer.timestampColor = Convert.ToInt64(JsonHelper.TryGetValueByXPath(paidMsgRd, "timestampColor", 0));
         }
+
+        private void ParseMemberMilestoneMessage(LiveChatMembershipItemRenderer liveChatMembershipItemRenderer, dynamic memberMileStoneRd)
+        {
+            ParseTextMessage(liveChatMembershipItemRenderer, memberMileStoneRd);
+        }
+        
+        private void ParseGiftMessage(LiveChatSponsorshipsGiftPurchaseAnnouncementRenderer liveChatPaidMessageRenderer, dynamic giftMsgRd)
+        {
+            ParseTextMessage(liveChatPaidMessageRenderer, giftMsgRd);
+        }
+        
 
         /// <summary>
         /// 解析留言內容

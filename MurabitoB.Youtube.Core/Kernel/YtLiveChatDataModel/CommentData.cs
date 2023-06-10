@@ -120,6 +120,16 @@ namespace KomeTube.Kernel.YtLiveChatDataModel
         public long authorNameTextColor { get; set; }
         public long timestampColor { get; set; }
     }
+    
+    public class LiveChatMembershipItemRenderer : LiveChatTextMessageRenderer
+    {
+      
+    }
+
+    public class LiveChatSponsorshipsGiftPurchaseAnnouncementRenderer : LiveChatTextMessageRenderer
+    {
+        
+    }
 
     public class LiveChatTextMessageRenderer
     {
@@ -150,10 +160,15 @@ namespace KomeTube.Kernel.YtLiveChatDataModel
         {
             this.liveChatTextMessageRenderer = new LiveChatTextMessageRenderer();
             this.liveChatPaidMessageRenderer = new LiveChatPaidMessageRenderer();
+            this.liveChatMembershipItemRenderer = new LiveChatMembershipItemRenderer();
+            this.liveChatSponsorshipsGiftPurchaseAnnouncementRenderer = new LiveChatSponsorshipsGiftPurchaseAnnouncementRenderer();
         }
 
         public LiveChatTextMessageRenderer liveChatTextMessageRenderer { get; set; }
         public LiveChatPaidMessageRenderer liveChatPaidMessageRenderer { get; set; }
+        public LiveChatMembershipItemRenderer liveChatMembershipItemRenderer { get; set; }
+        
+        public LiveChatSponsorshipsGiftPurchaseAnnouncementRenderer liveChatSponsorshipsGiftPurchaseAnnouncementRenderer { get; set; }
 
         public bool IsPaidMessage
         {

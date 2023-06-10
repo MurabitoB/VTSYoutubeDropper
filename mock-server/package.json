@@ -1,0 +1,20 @@
+{
+  "name": "mock_server",
+  "version": "0.1.0",
+  "description": "API mock server",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon -x ts-node server.ts"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "mqk-mock-server": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^10.12.15",
+    "nodemon": "^1.18.4",
+    "ts-node": "^10.9.1",
+    "typescript": "^3.0.1"
+  }
+}

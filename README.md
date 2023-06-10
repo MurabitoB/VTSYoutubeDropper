@@ -43,13 +43,13 @@ Most of the parameter will inherit from Twitch Dropper.
 
 Press `DELETE` key to open/close the plug-in window.
 
-![](https://i.imgur.com/Z8RAndz.png)
+![](https://i.imgur.com/aUoAiQy.png)
 
 EXAMPLE: `https://www.youtube.com/watch?v=8UN9Z_cpWF`
 
 Copy your stream url to the plug-in window and click Confirm.
 
-![](https://i.imgur.com/VshobEL.png)
+![](https://i.imgur.com/CfL5gWQ.png)
 
 ## Notes
 
@@ -57,7 +57,8 @@ Important:
 
 - Member only stream is not supported.
 - Text Emoji is not supported.
-- Message in Super Chat is not supported.
+- Recommend to use **Member / Admin Only** when using **Drop Thumbnail** to avoid spamming.
+- You can test in Unlisted stream.
 
 ## Q&A
 
